@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 /*
-  Desafio: Movimentando as Peças do Xadrez
+  Desafio: Movimentando as Peças do Xadrez (Nível Aventureiro)
   Autor: [Seu Nome]
   Descrição:
-    Este programa simula o movimento de três peças de xadrez — Torre, Bispo e Rainha —
-    utilizando diferentes estruturas de repetição (for, while e do-while).
+    Este programa simula o movimento de quatro peças de xadrez — Torre, Bispo, Rainha e Cavalo —
+    utilizando diferentes estruturas de repetição (for, while, do-while e loops aninhados).
 */
 
 int main() {
@@ -15,7 +15,6 @@ int main() {
     int casasTorre = 5; // número de casas que a torre se moverá
     printf("Movimento da Torre:\n");
 
-    // A Torre move-se em linha reta — aqui, simularemos movimento para a direita
     for (int i = 1; i <= casasTorre; i++) {
         printf("Direita (%d casa)\n", i);
     }
@@ -29,7 +28,6 @@ int main() {
     int i = 1;
     printf("Movimento do Bispo:\n");
 
-    // O Bispo move-se na diagonal — aqui, simularemos "Cima, Direita"
     while (i <= casasBispo) {
         printf("Cima, Direita (%d casa)\n", i);
         i++;
@@ -44,7 +42,6 @@ int main() {
     int j = 1;
     printf("Movimento da Rainha:\n");
 
-    // A Rainha pode mover-se em qualquer direção — simularemos movimento para a esquerda
     do {
         printf("Esquerda (%d casa)\n", j);
         j++;
@@ -52,8 +49,37 @@ int main() {
 
     printf("\n");
 
-    // Fim do programa
-    printf("Simulação concluída!\n");
+    // =============================
+    // 4️⃣ CAVALO — usa LOOPS ANINHADOS (FOR + WHILE)
+    // =============================
+    /*
+      O Cavalo se move em "L":
+      - 2 casas em uma direção (aqui: para BAIXO)
+      - 1 casa perpendicularmente (aqui: para ESQUERDA)
+      Estrutura:
+        -> Usamos um loop FOR para as 2 casas "para baixo"
+        -> Dentro dele, um loop WHILE para a 1 casa "para esquerda"
+    */
 
+    int casasBaixo = 2;
+    int casasEsquerda = 1;
+    int k; // contador interno
+
+    printf("Movimento do Cavalo:\n");
+
+    for (int movBaixo = 1; movBaixo <= casasBaixo; movBaixo++) {
+        printf("Baixo (%d casa)\n", movBaixo);
+
+        // Agora o Cavalo vai se mover uma casa para a esquerda após as duas para baixo
+        if (movBaixo == casasBaixo) {
+            k = 1;
+            while (k <= casasEsquerda) {
+                printf("Esquerda (%d casa)\n", k);
+                k++;
+            }
+        }
+    }
+
+    printf("\nSimulação concluída!\n");
     return 0;
 }
